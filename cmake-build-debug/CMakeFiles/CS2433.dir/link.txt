@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/CS2433.dir/main.cpp.o CMakeFiles/CS2433.dir/Assinments/PA1.cpp.o  -o CS2433 

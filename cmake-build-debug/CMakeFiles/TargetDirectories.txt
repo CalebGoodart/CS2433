@@ -1,0 +1,3 @@
+/home/cgoodart/CLionProjects/CS2433/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/cgoodart/CLionProjects/CS2433/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/cgoodart/CLionProjects/CS2433/cmake-build-debug/CMakeFiles/CS2433.dir
