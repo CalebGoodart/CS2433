@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/CS2433.dir/main.cpp.o"
   "CMakeFiles/CS2433.dir/Assinments/PA1.cpp.o"
+  "CMakeFiles/CS2433.dir/Assinments/PA2.cpp.o"
   "CS2433.pdb"
   "CS2433"
 )

@@ -3,4 +3,4 @@ project(CS2433)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(CS2433 main.cpp Assinments/PA1.cpp)
+add_executable(CS2433 main.cpp Assinments/PA1.cpp Assinments/PA2.cpp)

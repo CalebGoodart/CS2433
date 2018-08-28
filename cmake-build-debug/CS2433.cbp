@@ -87,6 +87,9 @@
 		<Unit filename="/home/cgoodart/CLionProjects/CS2433/Assinments/PA1.cpp">
 			<Option target="CS2433"/>
 		</Unit>
+		<Unit filename="/home/cgoodart/CLionProjects/CS2433/Assinments/PA2.cpp">
+			<Option target="CS2433"/>
+		</Unit>
 		<Unit filename="/home/cgoodart/CLionProjects/CS2433/main.cpp">
 			<Option target="CS2433"/>
 		</Unit>

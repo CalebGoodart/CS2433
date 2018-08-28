@@ -3,5 +3,7 @@
 
 CMakeFiles/CS2433.dir/Assinments/PA1.cpp.o: ../Assinments/PA1.cpp
 
+CMakeFiles/CS2433.dir/Assinments/PA2.cpp.o: ../Assinments/PA2.cpp
+
 CMakeFiles/CS2433.dir/main.cpp.o: ../main.cpp
 

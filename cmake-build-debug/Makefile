@@ -150,6 +150,33 @@ Assinments/PA1.cpp.s:
 	$(MAKE) -f CMakeFiles/CS2433.dir/build.make CMakeFiles/CS2433.dir/Assinments/PA1.cpp.s
 .PHONY : Assinments/PA1.cpp.s
 
+Assinments/PA2.o: Assinments/PA2.cpp.o
+
+.PHONY : Assinments/PA2.o
+
+# target to build an object file
+Assinments/PA2.cpp.o:
+	$(MAKE) -f CMakeFiles/CS2433.dir/build.make CMakeFiles/CS2433.dir/Assinments/PA2.cpp.o
+.PHONY : Assinments/PA2.cpp.o
+
+Assinments/PA2.i: Assinments/PA2.cpp.i
+
+.PHONY : Assinments/PA2.i
+
+# target to preprocess a source file
+Assinments/PA2.cpp.i:
+	$(MAKE) -f CMakeFiles/CS2433.dir/build.make CMakeFiles/CS2433.dir/Assinments/PA2.cpp.i
+.PHONY : Assinments/PA2.cpp.i
+
+Assinments/PA2.s: Assinments/PA2.cpp.s
+
+.PHONY : Assinments/PA2.s
+
+# target to generate assembly for a file
+Assinments/PA2.cpp.s:
+	$(MAKE) -f CMakeFiles/CS2433.dir/build.make CMakeFiles/CS2433.dir/Assinments/PA2.cpp.s
+.PHONY : Assinments/PA2.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -189,6 +216,9 @@ help:
 	@echo "... Assinments/PA1.o"
 	@echo "... Assinments/PA1.i"
 	@echo "... Assinments/PA1.s"
+	@echo "... Assinments/PA2.o"
+	@echo "... Assinments/PA2.i"
+	@echo "... Assinments/PA2.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
