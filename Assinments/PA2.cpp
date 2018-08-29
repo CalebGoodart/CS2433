@@ -9,6 +9,8 @@ PA2
 
 using namespace std;
 
+//Declaring functions
+//Name implies purpose
 double PermCircle(double);
 double PermSquare(double);
 double SACube(double);
@@ -22,6 +24,7 @@ int main(){
 
     double n = 17.3;
 
+    //printing required statements for assignment.
     cout << "Circumference of Circle in Centimetres: " << PermCircle(n) << endl;
     cout << "Area of Circle in Centimetres: " << AreaCircle(n) << endl;
     cout << "Circumference of Circle in Inches: " << PermCircle(InToCm(n)) << endl;
