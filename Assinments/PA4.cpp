@@ -9,7 +9,6 @@ PA4
 #include <fstream>
 #include <vector>
 #include <sstream>
-#include <iterator>
 
 using namespace std;
 
@@ -23,6 +22,7 @@ int main(){
 
     string word;
 
+    //take lines of input until it reaches the end of file and outputs formatted output
     while(!(input.eof())){
 
         getline(input, word);
@@ -30,16 +30,25 @@ int main(){
         string temp;
         vector<string> tokens;
 
+        //brakes the string into strings by spaces and puts them into a vector
         while(getline(ss, temp, ' ')){
 
             tokens.push_back(temp);
         }
 
-        cout << tokens[tokens.size()-1] << ", ";
-        output << tokens[tokens.size() - 1] << ", ";
+        //prints the names to the output file and to the terminal in the proper format
+        for (int i = 0; i < tokens.size(); ++i) {
 
-        cout << tokens[tokens.size()-2];
-        output << tokens[tokens.size() - 2];
+            if (i == 0){
+
+                cout << tokens[i] << ", ";
+                output << tokens[i] << ", ";
+            } else{
+
+                cout << tokens[i];
+                output << tokens[i];
+            }
+        }
 
         cout << endl;
         output << endl;
