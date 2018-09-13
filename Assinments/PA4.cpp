@@ -39,19 +39,38 @@ int main(){
         //prints the names to the output file and to the terminal in the proper format
         for (int i = 0; i < tokens.size(); ++i) {
 
-            if (i == 0){
 
-                cout << tokens[i] << ", ";
-                output << tokens[i] << ", ";
-            } else{
+            //format for first middle and last name
+            if (tokens.size() == 3){
 
-                cout << tokens[i];
-                output << tokens[i];
+                if (i == 0){
+
+                    cout << tokens[i] << ", ";
+                    output << tokens[i] << ", ";
+                } else if (i == 1) {
+
+                    cout << tokens[i + 1] << " " ;
+                    output << tokens[i + 1] << " ";
+
+                    cout << tokens[i] << " " << endl;
+                    output << tokens[i] << " " << endl;
+                }
+            }
+
+            //format for first and last name
+            if (tokens.size() == 2){
+
+                if (i == 0){
+
+                    cout << tokens[i] << ", ";
+                    output << tokens[i] << ", ";
+                } else {
+
+                    cout << tokens[i] << " " << endl;
+                    output << tokens[i] << " " << endl;
+                }
             }
         }
-
-        cout << endl;
-        output << endl;
     }
 
     output.close();
