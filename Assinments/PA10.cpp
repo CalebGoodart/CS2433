@@ -20,6 +20,7 @@ private:
     std::string major;
     int studentid;
     double gpa;
+
 public:
     void setVariables(std::string, std::string, int, std::string, double);
     void setMajor(std::string);
@@ -28,10 +29,30 @@ public:
     void clearAllData();
     void printData();
 
-
 }students[arrSize];
 
+class StudentNode {
+private:
+    Student student;
+    StudentNode *next;
+
+public:
+    StudentNode StudnetNode() {}
+    StudentNode(Student d, StudentNode* n);
+    Student getStudent();
+    StudentNode* getNext();
+    void setStudent(Student d);
+    void setNext(StudentNode* n);
+    void add(StudentNode* &head, Student student);
+    void print(StudentNode* head);
+};
+
+
+
+
 int main(){
+
+    StudentNode* head = NULL;
 
     std::ifstream input;
     std::ofstream output;
@@ -52,55 +73,50 @@ int main(){
 
             tokens.push_back(temp);
         }
-        students[i].setVariables(tokens[0], tokens[1], atoi(tokens[2].c_str()), tokens[3], strtod(tokens[4].c_str(), NULL));
+
+        Student student;
+        student.setVariables(tokens[0], tokens[1], atoi(tokens[2].c_str()), tokens[3], strtod(tokens[4].c_str(), NULL));
+
+        head->add(head, student);
     }
 
+//first print
+    head->print(head);
 
-    //sort by studentid
-    int  x, j;
-    Student temp1;
+//new data insert
+    int arr[9] = {1,2,3,5,7,11,13,17};
 
-    for (x = 1; x < arrSize; x++){
 
-        temp1 = students[x];
-        j = x-1;
+    for (int j = 0; j < 9; ++j) {
 
-        while(j >= 0 && students[j].getID() < temp1.getID()){
+        StudentNode* temp = head;
+        for (int i = 0; i < arr[j]; ++i) {
 
-            students[j+1] = students[j];
-            j = j-1;
+            temp = temp->getNext();
         }
-        students[j+1] = temp1;
-    }
 
-    //frist print
-    for (int i = 0; i < arrSize; i++){
 
-        students[i].printData();
-    }
 
-    std::cout << "\n" << std::endl;
-    int arr[8] = {1,2,3,5,7,11,13,17};   //what number in the array to change student data
+        while(true){
 
-            //changeing data for major and gpa
-    for (int k = 0; k < 8; k++){
-        students[arr[k]].setGPA(4.0);
-        students[arr[k]].setMajor("CS");
+        temp = temp->getNext();
+
+        }
+        temp->getStudent().setGPA(5.0);
+        temp->getStudent().setMajor("Computer Science");
 
     }
 
-    // second print
-    for (int i = 0; i < arrSize; i++){
 
-        students[i].printData();
-    }
-
+//second print
+    head->print(head);
     return 0;
+
+
 }
 
 
-//functions
-// functions do as named
+//Student class deffs
 void Student::setVariables(std::string first, std::string last, int studentid, std::string major, double gpa){
     this->firstName = first;
     this->lastName = last;
@@ -139,4 +155,92 @@ void Student::printData() {
 
 int Student::getID() {
     return this->studentid;
+}
+
+//class StudentNode deffs
+
+StudentNode::StudentNode(Student d, StudentNode* n) {
+
+    student = d;
+    next = n;
+}
+
+Student StudentNode::getStudent() {
+    return student;
+}
+
+StudentNode* StudentNode::getNext() {
+    return next;
+}
+
+void StudentNode::setStudent(Student d) {
+    student = d;
+}
+
+void StudentNode::setNext(StudentNode* n) {
+    next = n;
+}
+
+void StudentNode::add(StudentNode* &head, Student student) {
+
+    StudentNode *current = head;
+
+//Intitailizeing the list
+    if (current == NULL) {
+        head = new StudentNode(student, NULL);
+        return;
+    }
+
+    StudentNode *newNode = new StudentNode(student, NULL);
+    StudentNode *prev = head;
+    current = current->getNext();
+
+//test for the case 1: one node in list
+    if (current == NULL) {
+
+        prev->setNext(newNode);
+        newNode->setNext(current);
+        return;
+    }
+
+    while (current != NULL) {
+
+// case 2: previous is less than the new node
+        if (prev->getStudent().getID() < student.getID()) {
+
+            newNode->setNext(prev);
+            head = newNode;
+            return;
+        }
+//case 3: current is less then the new node
+        if (current->getStudent().getID() < student.getID()) {
+            prev->setNext(newNode);
+            newNode->setNext(current);
+            return;
+        }
+//case 4: if the new node is the smallest in the list
+        if (current->getNext() == NULL){
+
+            current->setNext(newNode);
+            return;
+        }
+
+//advances prev and current nodes to the next node
+        prev = prev->getNext();
+        current = current->getNext();
+    }
+
+}
+
+void StudentNode::print(StudentNode* head) {
+
+    StudentNode* current = head;
+
+    while (current != NULL) {
+
+        current->getStudent().printData();
+        current = current->getNext();
+    }
+
+    std::cout << std::endl;
 }
