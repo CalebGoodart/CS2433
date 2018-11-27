@@ -11,8 +11,7 @@ PA10
 #include <cstdlib>
 #include <iostream>
 
-const int arrSize = 18;// the size of the student array
-
+//Defining Classes
 class Student{
 private:
     std::string lastName;
@@ -28,8 +27,7 @@ public:
     void setGPA(double gpa);
     void clearAllData();
     void printData();
-
-}students[arrSize];
+};
 
 class StudentNode {
 private:
@@ -47,8 +45,7 @@ public:
     void print(StudentNode* head);
 };
 
-
-
+void changeData(int[], StudentNode* &head);
 
 int main(){
 
@@ -74,9 +71,11 @@ int main(){
             tokens.push_back(temp);
         }
 
+        //takes student data from the vector and inserts it into the Student
         Student student;
         student.setVariables(tokens[0], tokens[1], atoi(tokens[2].c_str()), tokens[3], strtod(tokens[4].c_str(), NULL));
 
+        //adds new Node and sorts it as it is added
         head->add(head, student);
     }
 
@@ -84,37 +83,13 @@ int main(){
     head->print(head);
 
 //new data insert
-    int arr[9] = {1,2,3,5,7,11,13,17};
-
-
-    for (int j = 0; j < 9; ++j) {
-
-        StudentNode* temp = head;
-        for (int i = 0; i < arr[j]; ++i) {
-
-            temp = temp->getNext();
-        }
-
-
-
-        while(true){
-
-        temp = temp->getNext();
-
-        }
-        temp->getStudent().setGPA(5.0);
-        temp->getStudent().setMajor("Computer Science");
-
-    }
-
+    int arr[8] = {1400, 1200, 1300, 1500, 1350, 1425, 1550, 1175}; // array of student ids for data change
+    changeData(arr, head);
 
 //second print
     head->print(head);
     return 0;
-
-
 }
-
 
 //Student class deffs
 void Student::setVariables(std::string first, std::string last, int studentid, std::string major, double gpa){
@@ -185,7 +160,7 @@ void StudentNode::add(StudentNode* &head, Student student) {
 
     StudentNode *current = head;
 
-//Intitailizeing the list
+//Initializing the list
     if (current == NULL) {
         head = new StudentNode(student, NULL);
         return;
@@ -244,3 +219,29 @@ void StudentNode::print(StudentNode* head) {
 
     std::cout << std::endl;
 }
+
+
+//Other functions
+//Changes data for an array of studnet ids
+void changeData(int arr[], StudentNode* &head){
+
+    for (int i = 0; i < 8; ++i) {
+
+        StudentNode *node = head;
+        Student temp;
+        while (node->getNext() != NULL) {
+
+            temp = node->getStudent();
+            if (node->getStudent().getID() == arr[i]) {
+
+                temp.setMajor("Computer Science");
+                temp.setGPA(5.0);
+                node->setStudent(temp);
+                break;
+            }
+            node = node->getNext();
+        }
+    }
+}
+
+//End
