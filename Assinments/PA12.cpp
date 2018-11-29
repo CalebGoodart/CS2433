@@ -11,21 +11,29 @@ PA12
 double fibRecur(int);
 
 //array to keep track of fib nums
-double mem[51];
+double mem[50];
 
 int main(){
+    mem[0] = 0;
+    mem[1] = 1;
+    mem[2] = 1;
 
-    for (int i = 1; i <= 50; ++i) {
+
+    for (int i = 0; i <= 50; ++i) {
         std::cout << fibRecur(i) << std::endl;
+        if (i == 50){
+            std::cout << fibRecur(i) << " is the 50th term" << std::endl;
+        }
     }
 }
 
 double fibRecur(int n){
 
-    if ( n <= 1 ){
-        return 1;
 
-        //checks if fib num is in memory, if so returns the num in mem
+    if(n == 0){
+        mem[n] = 0;
+    }else if(n == 1 || n == 2){
+        mem[n] = 1;
     }else if (mem[n] != 0) {
         return mem[n];
     }else{
