@@ -35,7 +35,6 @@ private:
     StudentNode *next;
 
 public:
-    //StudentNode StudnetNode() {}
     StudentNode(Student d, StudentNode* n);
     Student getStudent();
     StudentNode* getNext();
